@@ -1,0 +1,92 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    {% include 'partials/header_ref.html' %}
+    <title>Sign In | PyComms</title>
+  </head>
+  <body class="bg-light">
+    <!-- container -->
+    <div class="container d-flex flex-column">
+      <div class="row align-items-center justify-content-center g-0
+          min-vh-100">
+        <div class="col-12 col-md-8 col-lg-6 col-xxl-4 py-8 py-xl-0">
+          <!-- Card -->
+          <div class="card smooth-shadow-md">
+            <!-- Card body -->
+            <div class="card-body p-6">
+              <div class="mb-4">
+                <a href="{% url 'homepage' %}"><img src="{% static 'images/logo-primary.svg' %}" class="mb-2" alt=""></a>
+                <p class="mb-6">Please enter your user information.</p>
+              </div>
+                {% if messages %}
+                    {% for message in messages %}
+                        {% if message.tags == 'success' %}
+                            <div class="alert alert-success d-flex align-items-center" role="alert">
+                              <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor" class="bi bi-check-circle-fill me-2" viewBox="0 0 16 16">
+                                 <path d="M16 8A8 8 0 1 1 0 8a8 8 0 0 1 16 0zm-3.97-3.03a.75.75 0 0 0-1.08.022L7.477 9.417 5.384 7.323a.75.75 0 0 0-1.06 1.06L6.97 11.03a.75.75 0 0 0 1.079-.02l3.992-4.99a.75.75 0 0 0-.01-1.05z"/>
+                              </svg>
+                              <div>
+                                 {{ message }}
+                              </div>
+                            </div>
+                        {% else %}
+                            <div class="alert alert-danger d-flex align-items-center" role="alert">
+                              <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor" class="bi bi-exclamation-triangle-fill me-2" viewBox="0 0 16 16">
+                                 <path d="M8.982 1.566a1.13 1.13 0 0 0-1.96 0L.165 13.233c-.457.778.091 1.767.98 1.767h13.713c.889 0 1.438-.99.98-1.767L8.982 1.566zM8 5c.535 0 .954.462.9.995l-.35 3.507a.552.552 0 0 1-1.1 0L7.1 5.995A.905.905 0 0 1 8 5zm.002 6a1 1 0 1 1 0 2 1 1 0 0 1 0-2z"/>
+                              </svg>
+                              <div>
+                                 {{ message }}
+                              </div>
+                            </div>
+                        {% endif %}
+                    {% endfor %}
+                {% endif %}
+              <!-- Form -->
+              <form method="post">
+                  {% csrf_token %}
+                <!-- Username -->
+                <div class="mb-3">
+                  <label class="form-label">Username or email</label>
+                    {{ form.username }}
+                    {{ form.username.errors }}
+                </div>
+                <!-- Password -->
+                <div class="mb-3">
+                  <label class="form-label">Password</label>
+                    {{ form.password }}
+                    {{ form.password.errors }}
+                </div>
+                <!-- Checkbox -->
+                <div class="d-lg-flex justify-content-between align-items-center
+                    mb-4">
+                  <div class="form-check custom-checkbox">
+                    {{ form.remember_me }}
+                    {{ form.remember_me.errors }}
+                    <label class="form-check-label" for="rememberme">Remember me</label>
+                    <input type="hidden" name="next" value="{{ next }}">
+                  </div>
+                </div>
+                <div>
+                  <!-- Button -->
+                  <div class="d-grid">
+                    <button type="submit" class="btn btn-primary">Sign in</button>
+                  </div>
+                  <div class="d-md-flex justify-content-between mt-4">
+                    <div class="mb-2 mb-md-0">
+                      <a href="{% url 'signup' %}" class="fs-5">Create An Account </a>
+                    </div>
+                    <div>
+                      <a href="{% url 'forget-password' %}" class="text-inherit fs-5">Forgot your password?</a>
+                    </div>
+                  </div>
+                </div>
+              </form>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    {% include 'partials/footer.html' %}
+  </body>
+</html>

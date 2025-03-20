@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    {% include 'partials/header_ref.html' %}
+    <title>Privacy Policy | PyComms</title>
+  </head>
+  <body class="bg-light">
+    <div id="db-wrapper">
+      {% include 'partials/vertical_nav.html' %}
+      <!-- Page content -->
+      <div id="page-content">
+        <div class="container mt-5">
+            <h1 class="mb-4">Privacy Policy</h1>
+            <p><strong>Effective Date:</strong> {% now "l, F j, Y" %}</p>
+            <p>At <a href="{% url 'homepage' %}">PyComms</a>, we take your privacy seriously. This Privacy Policy explains how we collect, use, and protect your information.</p>
+
+            <h2 class="mt-4">1. Information We Collect</h2>
+            <ul class="list-group">
+                <li class="list-group-item">Account Information: Username, email, password, and friend connections.</li>
+                <li class="list-group-item">Messages & Chats: Direct messages (DMs) and channel chat history.</li>
+                <li class="list-group-item">Voice Chat Activity: Mute/deafen status, join/leave logs (no voice recordings).</li>
+                <li class="list-group-item">Usage Data: Interactions with our platform, including chat messages, friend requests, and voice activity.</li>
+                <li class="list-group-item">Technical Data: IP address, device type, and browser information.</li>
+            </ul>
+
+            <h2 class="mt-4">2. How We Use Your Information</h2>
+            <ul class="list-group">
+                <li class="list-group-item">Provide and improve our services.</li>
+                <li class="list-group-item">Ensure security and prevent abuse.</li>
+                <li class="list-group-item">Connect you with friends and manage chat features.</li>
+                <li class="list-group-item">Send important updates or notifications.</li>
+            </ul>
+
+            <h2 class="mt-4">3. Data Sharing & Protection</h2>
+            <ul class="list-group">
+                <li class="list-group-item">We do not sell your personal data to third parties.</li>
+                <li class="list-group-item">We may share data with legal authorities if required by law.</li>
+                <li class="list-group-item">Your data is encrypted and stored securely.</li>
+                <li class="list-group-item">Messages and chats are stored for functionality but may be deleted upon request.</li>
+            </ul>
+
+            <h2 class="mt-4">4. Cookies & Tracking</h2>
+            <ul class="list-group">
+                <li class="list-group-item">PyComms may use cookies for functionality and analytics.</li>
+                <li class="list-group-item">You can disable cookies in your browser settings.</li>
+            </ul>
+
+            <h2 class="mt-4">5. Your Rights</h2>
+            <ul class="list-group">
+                <li class="list-group-item">You can update or delete your account information.</li>
+                <li class="list-group-item">You may request access to the data we hold about you.</li>
+                <li class="list-group-item">You can remove friends or block users at any time.</li>
+            </ul>
+
+            <h2 class="mt-4">6. Termination</h2>
+            <ul class="list-group">
+                <li class="list-group-item">We may suspend or terminate your account if you violate these Terms.</li>
+                <li class="list-group-item">You can stop using PyComms at any time.</li>
+            </ul>
+
+            <h2 class="mt-4">8. Changes to This Policy</h2>
+            <ul class="list-group">
+                <li class="list-group-item">We may update this Privacy Policy. Continued use of PyComms after changes means you accept the new policy.</li>
+            </ul>
+
+            <p class="mt-4">For more information, contact us at <a href="mailto:your@email.com">your@email.com</a>.</p>
+        </div>
+      </div>
+    </div>
+    {% include 'partials/footer.html' %}
+  </body>
+</html>

@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+{% include 'partials/header_ref.html' %}
+<title>{% block title %}{% endblock %}</title>
+</head>
+<body class="bg-light">
+<div id="db-wrapper">
+  {% include 'partials/vertical_nav.html' %}
+  {% block extra_header %}{% endblock %}
+  <!-- Page content -->
+  <div id="page-content">
+    {% include 'partials/header.html' %}
+    <!-- Container fluid -->
+    {% block content %}{% endblock %}
+  </div>
+  <!-- Toast Container -->
+  <div class="toast-container position-fixed top-0 end-0 p-3" id="toastContainer"></div>
+</div>
+{% include 'partials/footer.html' %}
+{% block extra_footer %}{% endblock %}
+</body>
+</html>

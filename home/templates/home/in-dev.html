@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+{% load static %}
+<head>
+  {% include 'partials/header_ref.html' %}
+  <title>Not Yet | PyComms </title>
+</head>
+  <body class="bg-white">
+    <!-- Error page -->
+    <div class="container min-vh-100 d-flex justify-content-center
+      align-items-center">
+      <!-- row -->
+      <div class="row">
+        <!-- col -->
+        <div class="col-12">
+          <!-- content -->
+          <div class="text-center">
+            <div class="mb-3">
+              <!-- img -->
+              <img src="{% static 'images/in-dev.png' %}" alt="in-dev" class="img-fluid">
+            </div>
+            <!-- text -->
+            <h1 class="display-4 fw-bold">Oops! the page is not ready yet.</h1>
+            <p class="mb-4">Or simply not available for this version.</p>
+              <!-- button -->
+            <a href="{% url 'homepage' %}" class="btn btn-primary">Go Home</a>
+          </div>
+        </div>
+      </div>
+    </div>
+    {% include 'partials/footer.html' %}
+  </body>
+</html>

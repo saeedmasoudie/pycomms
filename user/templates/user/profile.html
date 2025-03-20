@@ -1,0 +1,189 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block extra_header %}{% endblock %}
+{% block title %}
+    {{ user.full_name }} | PyComms
+{% endblock %}
+{% block content %}
+    <!-- Container fluid -->
+    <div class="container-fluid p-6">
+    <div class="row">
+      <div class="col-lg-12 col-md-12 col-12">
+        <!-- Page header -->
+          <div class="border-bottom pb-4 mb-4 ">
+              <h3 class="mb-0 fw-bold">Overview</h3>
+        </div>
+      </div>
+    </div>
+    <div class="row align-items-center">
+      <div class="col-xl-12 col-lg-12 col-md-12 col-12">
+        <!-- Bg -->
+        <div class="pt-20 rounded-top" style="background: url({% if user.profile_cover %}{{ user.profile_cover.url }}{% else %}{% static 'images/profile-cover.jpg' %}{% endif %}) no-repeat; background-size: cover;">
+        </div>
+        <div class="bg-white rounded-bottom smooth-shadow-sm ">
+          <div class="d-flex align-items-center justify-content-between
+              pt-4 pb-6 px-4">
+            <div class="d-flex align-items-center">
+              <!-- avatar -->
+              <div class="avatar-xxl avatar-indicators avatar-online me-2
+                  position-relative d-flex justify-content-end
+                  align-items-end mt-n10">
+                <img src="{% if user.avatar %}{{ user.avatar.url }}{% else %}{% static 'images/avatar.jpg' %}{% endif %}" class="avatar-xxl rounded-circle border border-4 border-white-color-40" alt="">
+                {% if user.is_staff %}
+                <a href="#" class="position-absolute top-0 right-0 me-2" data-bs-toggle="tooltip" data-placement="top" title="" data-original-title="Verified">
+                  <img src="{% static 'images/admin-mark.svg' %}" alt="" height="30" width="30">
+                </a>
+                {% endif %}
+              </div>
+              <!-- text -->
+              <div class="lh-1">
+                <h2 class="mb-0">{{ user.full_name }}
+                  <a href="#" class="text-decoration-none" data-bs-toggle="tooltip" data-placement="top" title="" data-original-title="Beginner"></a>
+                </h2>
+                <p class="mb-0 d-block">@{{ user.username }}</p>
+              </div>
+            </div>
+            <div>
+            {% if request.user == user %}
+              <a href="{% url 'profile-settings' %}" class="btn btn-outline-primary d-none d-md-block">Edit Profile</a>
+            {% else %}
+              <a href="#" class="btn btn-outline-primary d-none d-md-block">Add Friend</a>
+            {% endif %}
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- content -->
+    <div class="py-6">
+      <!-- row -->
+      <div class="row">
+        <div class="col-xl-6 col-lg-12 col-md-12 col-12 mb-6">
+          <!-- card -->
+          <div class="card">
+            <!-- card body -->
+            <div class="card-body">
+              <!-- card title -->
+              <h4 class="card-title">About Me</h4>
+              <span class="text-uppercase fw-medium text-dark
+                  fs-5 ls-2">Bio</span>
+              <!-- text -->
+              <p class="mt-2 mb-6">{% if user.bio %}{{ user.bio }}{% else %}-----{% endif %}</p>
+              <!-- row -->
+              <div class="row">
+                <div class="col-12 mb-5">
+                  <!-- text -->
+                  <h6 class="text-uppercase fs-5 ls-2">Rank
+                  </h6>
+                  <p class="mb-0">{% if user.is_staff %}Admin{% else %}Member{% endif %}</p>
+                </div>
+                <div class="col-6">
+                  <h6 class="text-uppercase fs-5 ls-2">Location
+                  </h6>
+                  <p class="mb-0">{% if user.country %}<span class="flag flag-{{ user.country| lower }}"></span> {{ user.country.name }}{% else %}-----{% endif %}</p>
+                </div>
+                <div class="col-6">
+                  <h6 class="text-uppercase fs-5 ls-2">Date of Birth </h6>
+                  <p class="mb-0">{% if user.date_of_birth %}{{ user.date_of_birth }}{% else %}-----{% endif %}</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="col-xl-6 col-lg-12 col-md-12 col-12 mb-6">
+          <!-- card -->
+          <div class="card mb-4">
+            <!-- card body -->
+            <div class="card-body">
+              <!-- card title -->
+              <h4 class="card-title">Friends</h4>
+              <div class="d-flex justify-content-between align-items-center mb-4">
+                <div class="d-flex align-items-center">
+                  <!-- img -->
+                  <div>
+                    <img src="{% static 'images/avatar.jpg' %}" class="rounded-circle avatar-md" alt="">
+                  </div>
+                  <!-- text -->
+                  <div class="ms-3 ">
+                    <h5 class="mb-1">Dianna Smiley</h5>
+                    <p class="text-muted mb-0 fs-5 text-muted">UI / UX Designer
+                    </p>
+                  </div>
+                </div>
+                <div>
+                  <a href="#" class="text-muted text-primary-hover"><i
+                        class="me-4 icon-xs" data-feather="phone-call"></i></a>
+                  <a href="#" class="text-muted text-primary-hover"><i
+                        class="icon-xs" data-feather="video"></i></a>
+                </div>
+              </div>
+              <div class="d-flex justify-content-between align-items-center mb-4">
+                <div class="d-flex align-items-center">
+                  <!-- img -->
+                  <div>
+                    <img src="{% static 'images/avatar.jpg' %}" class="rounded-circle avatar-md" alt="">
+                  </div>
+                  <!-- content -->
+                  <div class="ms-3 ">
+                    <h5 class="mb-1">Anne Brewer</h5>
+                    <p class="text-muted mb-0 fs-5 text-muted">Senior UX Designer
+                    </p>
+                  </div>
+                </div>
+                <div>
+                  <!-- icons -->
+                  <a href="#" class="text-muted text-primary-hover"><i
+                        class="me-4 icon-xs" data-feather="phone-call"></i></a>
+                  <a href="#" class="text-muted text-primary-hover"><i
+                        class="icon-xs" data-feather="video"></i></a>
+                </div>
+              </div>
+              <div class="d-flex justify-content-between align-items-center mb-4">
+                <div class="d-flex align-items-center">
+                  <!-- img -->
+                  <div>
+                    <img src="{% static 'images/avatar.jpg' %}" class="rounded-circle avatar-md" alt="">
+                  </div>
+                  <!-- text -->
+                  <div class="ms-3 ">
+                    <h5 class="mb-1">Richard Christmas
+                    </h5>
+                    <p class="text-muted mb-0 ">Front-End Engineer</p>
+                  </div>
+                </div>
+                <div>
+                  <!-- icons -->
+                  <a href="#" class="text-muted text-primary-hover"><i
+                        class="me-4 icon-xs" data-feather="phone-call"></i></a>
+                  <a href="#" class="text-muted text-primary-hover"><i
+                        class="icon-xs" data-feather="video"></i></a>
+                </div>
+              </div>
+              <div class="d-flex justify-content-between align-items-center">
+                <!-- img -->
+                <div class="d-flex align-items-center">
+                  <div>
+                    <img src="{% static 'images/avatar.jpg' %}" class="rounded-circle avatar-md" alt="">
+                  </div>
+                  <!-- text -->
+                  <div class="ms-3 ">
+                    <h5 class="mb-1">Nicholas Binder
+                    </h5>
+                    <p class="text-muted mb-0 fs-5 ">Content Marketing Manager</p>
+                  </div>
+                </div>
+                <div>
+                  <a href="#" class="text-muted text-primary-hover"><i
+                        class="me-4 icon-xs" data-feather="phone-call"></i></a>
+                  <a href="#" class="text-muted text-primary-hover"><i
+                        class="icon-xs" data-feather="video"></i></a>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+{% endblock %}
+{% block extra_js %}{% endblock %}

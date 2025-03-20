@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    {% include 'partials/header_ref.html' %}
+    <title>Privacy Policy | PyComms</title>
+  </head>
+  <body class="bg-light">
+    <div id="db-wrapper">
+      {% include 'partials/vertical_nav.html' %}
+      <!-- Page content -->
+      <div id="page-content">
+        <div class="container mt-5">
+            <div class="container mt-5">
+                <h1 class="mb-4">Terms of Service</h1>
+                <p><strong>Effective Date:</strong> {% now "l, F j, Y" %}</p>
+                <p>Welcome to <a href="{% url 'homepage' %}">PyComms</a>! These Terms of Service ("Terms") govern your use of our platform and services. By accessing or using <a href="{% url 'homepage' %}">PyComms</a>, you agree to these Terms. If you do not agree, please do not use our services.</p>
+
+                <h2 class="mt-4">1. Use of Our Services</h2>
+                <ul class="list-group">
+                    <li class="list-group-item">You must be at least 13 years old to use PyComms.</li>
+                    <li class="list-group-item">You agree to use PyComms for lawful purposes only.</li>
+                    <li class="list-group-item">You may not interfere with the proper functioning of our platform.</li>
+                </ul>
+
+                <h2 class="mt-4">2. Accounts and Security</h2>
+                <ul class="list-group">
+                    <li class="list-group-item">You are responsible for maintaining the confidentiality of your account.</li>
+                    <li class="list-group-item">We are not liable for any unauthorized access to your account.</li>
+                    <li class="list-group-item">If you believe your account has been compromised, contact us.</li>
+                </ul>
+
+                <h2 class="mt-4">3. Friends, Direct Chats, and Channel Chats</h2>
+                <ul class="list-group">
+                    <li class="list-group-item">You can add friends and send direct messages.</li>
+                    <li class="list-group-item">You can participate in channel chats, which are public or private group discussions.</li>
+                    <li class="list-group-item">Respect others when using chat features. Harassment, threats, or offensive content will not be tolerated.</li>
+                    <li class="list-group-item">Messages and chats are not end-to-end encrypted, so use discretion when sharing sensitive information.</li>
+                </ul>
+
+                <h2 class="mt-4">4. Voice Communication and Chat Rules</h2>
+                <ul class="list-group">
+                    <li class="list-group-item">PyComms provides voice chat and text chat for communication.</li>
+                    <li class="list-group-item">You may mute or deafen yourself or others based on channel permissions.</li>
+                    <li class="list-group-item">Abuse of voice chat, including spamming, loud noises, or harassment, may lead to account suspension.</li>
+                </ul>
+
+                <h2 class="mt-4">5. Content and Conduct</h2>
+                <ul class="list-group">
+                    <li class="list-group-item">You retain ownership of any content you share but grant PyComms a non-exclusive license to use and display it.</li>
+                    <li class="list-group-item">You may not share illegal, hateful, or harmful content.</li>
+                    <li class="list-group-item">We reserve the right to remove content that violates these Terms.</li>
+                </ul>
+
+                <h2 class="mt-4">6. Termination</h2>
+                <ul class="list-group">
+                    <li class="list-group-item">We may suspend or terminate your account if you violate these Terms.</li>
+                    <li class="list-group-item">You can stop using PyComms at any time.</li>
+                </ul>
+
+                <h2 class="mt-4">7. Limitation of Liability</h2>
+                <ul class="list-group">
+                    <li class="list-group-item">PyComms is provided "as is" without warranties of any kind.</li>
+                    <li class="list-group-item">We are not responsible for any losses, damages, or disruptions caused by using our platform.</li>
+                </ul>
+
+                <h2 class="mt-4">8. Changes to These Terms</h2>
+                <ul class="list-group">
+                    <li class="list-group-item">We may update these Terms from time to time. Continued use of PyComms after updates means you accept the changes.</li>
+                </ul>
+
+                <p class="mt-4">For more information, contact us at <a href="mailto:your@email.com">your@email.com</a>.</p>
+            </div>
+        </div>
+      </div>
+    </div>
+    {% include 'partials/footer.html' %}
+  </body>
+</html>

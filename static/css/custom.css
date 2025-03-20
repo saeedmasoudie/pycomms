@@ -1,0 +1,147 @@
+.errorlist {
+    list-style: none;
+    color: #e74c3c;
+    padding-left: 0;
+}
+
+.profile_cover_preview {
+    width: 100%;
+    height: auto;
+    object-fit: cover;
+    margin-bottom: 10px;
+}
+
+/* Hide the specific file input using its class */
+.specific-file-input {
+    display: none;
+}
+
+@keyframes toastSlideIn {
+    0% {
+        transform: translateX(100%);
+        opacity: 0;
+    }
+    80% {
+        transform: translateX(-10px);
+        opacity: 1;
+    }
+    100% {
+        transform: translateX(0);
+    }
+}
+
+@keyframes toastSlideOut {
+    0% {
+        transform: translateX(0);
+        opacity: 1;
+    }
+    100% {
+        transform: translateX(100%);
+        opacity: 0;
+    }
+}
+
+/* Apply animations */
+.toast {
+    animation: toastSlideIn 0.5s ease-out;
+}
+
+.toast.fade-out {
+    animation: toastSlideOut 0.5s ease-in forwards;
+}
+
+.details-row {
+    display: none;
+    transition: all 0.3s ease-in-out;
+}
+.details-row.show {
+    display: table-row;
+}
+
+.position-relative {
+    position: relative !important;
+}
+
+.chat-messages {
+    display: flex;
+    flex-direction: column-reverse;
+    max-height: 800px;
+    overflow-y: scroll;
+}
+.chat-message-left {
+    margin-right: auto;
+}
+.chat-message-right {
+    flex-direction: row-reverse;
+    margin-left: auto;
+}
+.chat-message-left, .chat-message-right {
+    display: flex;
+    flex-shrink: 0;
+}
+
+.font-weight-bold {
+    font-weight: 700 !important;
+}
+
+.avatar-wrapper {
+    position: relative;
+    display: inline-block;
+    margin-right: 8px;
+}
+.avatar-wrapper .avatar {
+    border-radius: 50%;
+}
+.avatar-wrapper .status-circle {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    border-radius: 50%;
+    border: 3px solid #8d63f3;
+    width: 55px;
+    height: 55px;
+    opacity: 0.5;
+}
+
+.status-circle.talking {
+    opacity: 1;
+}
+
+.volume-control {
+    position: relative;
+    display: inline-block;
+}
+
+.volume-slider-container {
+    position: absolute;
+    bottom: 100%;
+    left: 50%;
+    transform: translateX(-50%);
+    background-color: #f8f9fa;
+    border: 1px solid #dee2e6;
+    border-radius: 4px;
+    padding: 10px;
+    z-index: 1000;
+    width: 150px;
+    text-align: center;
+    display: flex;
+    flex-direction: column; /* Arrange elements vertically */
+    align-items: center; /* Center-align the content */
+}
+
+.volume-slider-container .form-range {
+    width: 100%; /* Make the range slider responsive within the container */
+    margin: 0; /* Reset any unwanted Bootstrap margin */
+}
+
+.volume-slider-container .volume-percentage {
+    font-size: 12px;
+    color: #6c757d;
+    margin-top: 5px; /* Add a small space below the slider */
+    text-align: center;
+}
+
+.hidden {
+    display: none;
+}
