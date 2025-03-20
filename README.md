@@ -96,5 +96,5 @@ PyComms is under active development. While several core features are functional,
 ### **Contact**
 For questions or collaboration:
 - Name: Saeed or Eric
-- Email: SaeedMasoodi@yahoo.com
+- Email: Saeed.masoodi@yahoo.com
 - Portfolio/Website: [SaeedMasoudie.ir](https://www.saeedmasoudie.ir/)
