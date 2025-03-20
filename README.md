@@ -99,5 +99,5 @@ For questions or collaboration:
 - Email: Saeed.masoodi@yahoo.com
 - Portfolio/Website: [SaeedMasoudie.ir](https://www.saeedmasoudie.ir/)
 
-### **Contact**
-Credit to Dash Ui and Bootstrap For Frontend
+### **Credit**
+- Dash Ui and Bootstrap For Frontend
