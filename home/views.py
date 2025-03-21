@@ -65,12 +65,7 @@ class PrivacyPageView(TemplateView):
 class InDevelopmentPageView(TemplateView):
     template_name = 'home/in-dev.html'
 
-@method_decorator(ratelimit(key='ip', rate='100/h', block=False))
-@method_decorator(require_http_methods(["POST"]))
 def join_channel(request, channel_id):
-    was_limited = getattr(request, 'limited', False)
-    if was_limited:
-        raise PermissionDenied
     user = request.user
     channel = get_object_or_404(Channel, id=channel_id)
 
@@ -114,23 +109,13 @@ def join_channel(request, channel_id):
 
     return JsonResponse({"error": "Invalid request."}, status=400)
 
-@method_decorator(ratelimit(key='ip', rate='100/h', block=False))
-@method_decorator(require_http_methods(["POST"]))
 def leave_channel(request, channel_id):
-    was_limited = getattr(request, 'limited', False)
-    if was_limited:
-        raise PermissionDenied
     user = request.user
     channel = get_object_or_404(Channel, id=channel_id)
     # Mark user as inactive in the channel
     ChannelMember.objects.filter(channel=channel, user=user).update(active=False)
     return JsonResponse({"message": "Left successfully."})
 
-@method_decorator(ratelimit(key='ip', rate='100/h', block=False))
-@method_decorator(require_http_methods(["POST"]))
 def check_channel_password(request, channel_id):
-    was_limited = getattr(request, 'limited', False)
-    if was_limited:
-        raise PermissionDenied
     channel = get_object_or_404(Channel, id=channel_id)
     return JsonResponse({"password_protected": channel.is_password_protected()})
